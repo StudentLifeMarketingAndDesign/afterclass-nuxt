@@ -1,0 +1,1 @@
+import{_,a as r}from"./Footer.64897c46.js";import{_ as a}from"./_plugin-vue_export-helper.a1a6add7.js";import{o as c,c as s,a as o,B as m}from"./entry.aaddfbfc.js";const f={};function l(e,p){const t=_,n=r;return c(),s("div",null,[o(t),m(e.$slots,"default"),o(n)])}const x=a(f,[["render",l]]);export{x as default};
