@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <Head>
       <Title>{{ tag.name }}</Title>
       <MetaImageDefault />
@@ -14,16 +15,31 @@
 <script setup>
 import { ref } from "vue";
 const route = useRoute();
-const tag = ref(await getFilter("keyword", route.params.id));
+const eventFeed = await getEvents(null, null, null, route.params.id, null, null);
 // console.log(tag);
-const eventFeed = ref(
-  await getEvents(null, null, null, route.params.id, null, null)
-);
+const feedUrl =
+  "https://content.uiowa.edu/api/v1/views/filters_api.json?display_id=keywords";
 
-//console.log(interest);
+const { data: tagsFeed } = await useFetch(feedUrl);
+
+var tag;
+
+//console.log(tagsFeed.value.keywords);
+
+if (tagsFeed.value) {
+  // console.log("searching through keywords...");
+  // console.log(types.value);
+  tagsFeed.value.keywords.forEach((element) => {
+    if (element.id == route.params.id) {
+      //console.log("found one!");
+      tag = element;
+    }
+  });
+}
 </script>
   
 <style scoped>
+
 </style>
 
 

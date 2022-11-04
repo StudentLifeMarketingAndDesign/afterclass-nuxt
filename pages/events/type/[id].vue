@@ -11,13 +11,33 @@
 <script setup>
 import { ref } from "vue";
 const route = useRoute();
-const type = ref(await getFilter("event_types", route.params.id));
+//console.log(feed.value);
+// filterList = typeFeed.value[filterType];
 const eventFeed = ref(
   await getEvents(null, null, null, null, route.params.id, null)
 );
+
+const feedUrl =
+  "https://content.uiowa.edu/api/v1/views/filters_api.json?display_id=filters";
+const { data: typesFeed } = await useFetch(feedUrl);
+//console.log(typesFeed);
+var type;
+
+if (typesFeed.value["event_types"].length > 0) {
+  // console.log("searching through other filters");
+  // console.log(types.value);
+  typesFeed.value["event_types"].forEach((element) => {
+    if (element.id == route.params.id) {
+      type = element;
+    }
+  });
+}
+//= await getFilter("event_types", route.params.id);
+
 </script>
   
 <style scoped>
+
 </style>
 
 
