@@ -1,10 +1,10 @@
 <template>
   <masonry-wall
-    :items="eventFeed.events"
+    :items="events"
     :ssr-columns="4"
     :column-width="300"
     :gap="16"
-    v-if="eventFeed.events"
+    v-if="events"
   >
     <template #default="{ item }">
       <EventCard :event="item.event" />
@@ -14,7 +14,7 @@
 </template>
 <script setup>
 const props = defineProps({
-  eventFeed: Object,
+  events: Object,
 });
 </script>
 

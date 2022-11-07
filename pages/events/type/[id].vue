@@ -4,7 +4,7 @@
     <HeaderSmall />
     <div class="container-fluid">
       <h1 class="filter-header">Events categorized under "{{ type.name }}":</h1>
-      <EventWall :eventFeed="eventFeed" />
+      <EventWall :events="events" />
     </div>
   </div>
 </template>
@@ -13,9 +13,19 @@ import { ref } from "vue";
 const route = useRoute();
 //console.log(feed.value);
 // filterList = typeFeed.value[filterType];
-const eventFeed = ref(
-  await getEvents(null, null, null, null, route.params.id, null)
-);
+const events = ref([]);
+const eventFeed = ref([]);
+
+eventFeed.value = await getEvents(
+  null,
+  null,
+  null,
+  null,
+  route.params.id,
+  null
+).then((result) => {
+  events.value = result.value.events;
+});
 
 const feedUrl =
   "https://content.uiowa.edu/api/v1/views/filters_api.json?display_id=filters";
@@ -33,11 +43,9 @@ if (typesFeed.value["event_types"].length > 0) {
   });
 }
 //= await getFilter("event_types", route.params.id);
-
 </script>
   
 <style scoped>
-
 </style>
 
 

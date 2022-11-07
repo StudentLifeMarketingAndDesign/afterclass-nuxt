@@ -1,6 +1,14 @@
 const feedBase = "https://content.uiowa.edu/api/v1/views/events_api.json?";
 
-async function getEvents(startDate, endDate, venue, keyword, type, interest) {
+async function getEvents(
+  startDate,
+  endDate,
+  venue,
+  keyword,
+  type,
+  interest,
+  perPage
+) {
   var feedParams = "";
   var afterClassInterest = 284;
 
@@ -38,7 +46,11 @@ async function getEvents(startDate, endDate, venue, keyword, type, interest) {
     feedParams += "&filters[interests]=" + afterClassInterest;
   }
 
-  feedParams += "&items_per_page=100";
+  if (perPage) {
+    feedParams += "&items_per_page=" + perPage;
+  } else {
+    feedParams += "&items_per_page=100";
+  }
 
   const feedUrl = feedBase + feedParams;
 

@@ -6,7 +6,7 @@
     <HeaderSmall />
     <div class="container-fluid">
       <h1 class="filter-header">This weekend:</h1>
-      <EventWall :eventFeed="eventFeed" />
+      <EventWall :events="events" />
     </div>
   </div>
 </template>
@@ -20,6 +20,9 @@ import {
   format,
 } from "date-fns";
 import { ref } from "vue";
+const events = ref([]);
+const eventFeed = ref([]);
+
 const now = new Date();
 var start;
 var end;
@@ -39,7 +42,9 @@ if (isSunday(now)) {
 start = format(start, "MM-dd-yyyy");
 end = format(end, "MM-dd-yyyy");
 
-const eventFeed = ref(await getEvents(start, end));
+eventFeed.value = await getEvents(start, end).then((result) => {
+  events.value = result.value.events;
+});
 </script>
   
 <style scoped>

@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <Head>
       <Title>{{ venue.name }}</Title>
       <MetaImageDefault />
@@ -8,16 +7,28 @@
     <HeaderSmall />
     <div class="container-fluid">
       <h1 class="filter-header">Events located at "{{ venue.name }}":</h1>
-      <EventWall :eventFeed="eventFeed" />
+      <EventWall :events="events" />
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
 const route = useRoute();
-const eventFeed = ref(
-  await getEvents(null, null, route.params.id, null, null, null)
-);
+
+const events = ref([]);
+const eventFeed = ref([]);
+
+eventFeed.value = await getEvents(
+  null,
+  null,
+  route.params.id,
+  null,
+  null,
+  null
+).then((result) => {
+  events.value = result.value.events;
+});
+
 const feedUrl =
   "https://content.uiowa.edu/api/v1/views/filters_api.json?display_id=filters";
 const { data: venuesFeed } = await useFetch(feedUrl);
@@ -33,11 +44,9 @@ if (venuesFeed.value["places"].length > 0) {
     }
   });
 }
-
 </script>
   
 <style scoped>
-
 </style>
 
 

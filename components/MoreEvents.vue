@@ -1,19 +1,26 @@
 <template>
   <div>
     <div class="container-fluid">
-      <EventWall :eventFeed="shuffledEvents" />
+      <EventWall :events="shuffledEvents" :startDate="props.startDate" />
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
-const eventFeed = ref(await getEvents());
 
-var shuffledEvents = [{ events: [] }];
+const props = defineProps({
+  startDate: String,
+});
+const shuffledEvents = ref([]);
 
-shuffledEvents.events = ref(shuffleArray(eventFeed.value.events));
-
-// console.log(shuffledEvents);
+const eventFeed = ref(
+  await getEvents(null, null, null, null, null, null, 10).then((result) => {
+    // console.log(result.value.events);
+    shuffledEvents.value = shuffleArray(result.value.events);
+    //console.log(shuffledEvents.value);
+    // return shuffledEvents;
+  })
+);
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {

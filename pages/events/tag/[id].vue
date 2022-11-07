@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <Head>
       <Title>{{ tag.name }}</Title>
       <MetaImageDefault />
@@ -8,14 +7,26 @@
     <HeaderSmall />
     <div class="container-fluid">
       <h1 class="filter-header">Events tagged as "{{ tag.name }}":</h1>
-      <EventWall :eventFeed="eventFeed" />
+      <EventWall :events="events" />
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
 const route = useRoute();
-const eventFeed = await getEvents(null, null, null, route.params.id, null, null);
+const events = ref([]);
+const eventFeed = ref([]);
+
+eventFeed.value = await getEvents(
+  null,
+  null,
+  null,
+  route.params.id,
+  null,
+  null
+).then((result) => {
+  events.value = result.value.events;
+});
 // console.log(tag);
 const feedUrl =
   "https://content.uiowa.edu/api/v1/views/filters_api.json?display_id=keywords";
@@ -39,7 +50,6 @@ if (tagsFeed.value) {
 </script>
   
 <style scoped>
-
 </style>
 
 

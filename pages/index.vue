@@ -9,13 +9,20 @@
     </Head>
     <HeaderLarge />
     <div class="container-fluid">
-      <EventWall :eventFeed="eventFeed" />
+      <EventWall :events="events" />
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
-const eventFeed = ref(await getEvents());
+const eventFeed = ref([]);
+const events = ref([]);
+eventFeed.value = await getEvents().then((result) => {
+  events.value = result.value.events;
+  //console.log(events.value);
+});
+
+//console.log(eventFeed.value.events);
 </script>
 
 <style scoped>

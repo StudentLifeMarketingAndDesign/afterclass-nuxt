@@ -35,16 +35,26 @@
         </div>
       </div>
 
-      <EventWall :eventFeed="eventFeed" />
+      <EventWall :events="events" />
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
 const route = useRoute();
-const eventFeed = ref(
-  await getEvents(null, null, null, null, null, route.params.id)
-);
+const events = ref([]);
+const eventFeed = ref([]);
+
+eventFeed.value = await getEvents(
+  null,
+  null,
+  null,
+  null,
+  null,
+  route.params.id
+).then((result) => {
+  events.value = result.value.events;
+});
 
 const feedUrl =
   "https://content.uiowa.edu/api/v1/views/filters_api.json?display_id=filters";
