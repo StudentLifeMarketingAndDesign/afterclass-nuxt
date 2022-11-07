@@ -213,17 +213,9 @@
       </div>
     </div>
 
-    <h2
-      class="text-center pt-4"
-      @click="toggleMoreEventsList"
-      id="more-events-heading"
-    >
-      More events
-    </h2>
-    <!-- <MoreEvents :startDate="upcomingDates.first" /> -->
-
-    <div v-if="isShowMoreEvents">
-      <MoreEvents />
+    <div class="container-fluid" v-if="moreEvents.length > 0">
+      <h2 class="text-center pt-4" id="more-events-heading">More events</h2>
+      <EventWall :events="moreEvents" />
     </div>
   </div>
 </template>
@@ -233,17 +225,37 @@ const route = useRoute();
 const eventFeed = ref();
 const eventFetched = ref();
 const upcomingDates = ref([]);
+const typeSeed = ref("");
+
+const moreEventsFeed = ref([]);
+const moreEvents = ref([]);
 
 eventFeed.value = await getEvent(route.params.id).then((result) => {
   eventFetched.value = result.value;
   upcomingDates.value = getUpcomingDates(result.value.event_instances);
+  if (result.value.filters.event_types) {
+    typeSeed.value = result.value.filters.event_types[0].id;
+    //console.log(typeSeed.value);
+  }
+  // console.log(result.value.filters.event_types[0].id);
 });
 
-const isShowMoreEvents = ref(false);
+if (typeSeed.value) {
+  moreEventsFeed.value = await getEvents(
+    null,
+    null,
+    null,
+    null,
+    typeSeed.value
+  ).then((result) => {
+    moreEvents.value = result.value.events;
+    moreEvents.value = moreEvents.value.filter(
+      (e) => e.event.id !== eventFetched.value.id
+    );
+  });
+}
 
-const MoreEvents = defineAsyncComponent(() =>
-  import("~/components/MoreEvents.vue")
-);
+const isShowMoreEvents = ref(false);
 
 function isLateNight() {
   if (!eventFetched.value.filters) {
@@ -263,30 +275,6 @@ function isLateNight() {
     return false;
   }
 }
-onMounted(() => {
-  isShowMoreEvents.value = true;
-});
-// onMounted(() => {
-//   console.log("mounted page");
-//   console.log("isShowMoreEvents: " + isShowMoreEvents.value);
-//   let observerOptions = {
-//     threshold: 0.1,
-//   };
-
-//   let observer = new IntersectionObserver(function (entries, observer) {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) {
-//         console.log("loaded more events");
-//         isShowMoreEvents.value = true;
-//       }
-//     });
-//   }, observerOptions);
-//   let target = document.querySelector("#more-events-heading");
-//   //console.log("target : " + target);
-//   observer.observe(target);
-// });
-
-//console.log(eventFetched);
 </script>
 
 <style scoped>
