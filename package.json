@@ -9,7 +9,7 @@
     "devDependencies": {
         "@nuxt/image-edge": "^1.0.0-27769790.4b27db3",
         "@nuxtjs/google-fonts": "^3.0.0-0",
-        "nuxt": "^3.0.0-rc.12",
+        "nuxt": "^3.0.0-rc.13",
         "sass": "^1.55.0",
         "sass-loader": "10.1.1"
     },
