@@ -47,12 +47,15 @@
               <h2>Step 2. Visit content.uiowa.edu</h2>
               <p>
                 <a
-                  class="btn btn-outline-white btn-primary"
+                  class="btn btn-outline-primary"
                   rel="noopener"
                   href="https://content.uiowa.edu/user/login?destination=node/add/event"
                   target="_blank"
-                  >Log in with your HawkID</a
-                >
+                  >Log in with your HawkID
+                  <font-awesome-icon
+                    icon="fas fa-external-link-alt"
+                  ></font-awesome-icon
+                ></a>
               </p>
               <ul>
                 <li>
