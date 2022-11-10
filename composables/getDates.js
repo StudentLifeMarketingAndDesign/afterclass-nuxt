@@ -14,7 +14,10 @@ function getUpcomingDates(eventInstances) {
     var parsedDateDayAfter = add(parsedDate, { days: 1 });
     if (!isPast(parsedDateDayAfter)) {
       var formattedDate = formatEventInstance(element.event_instance);
-      dates.push(formattedDate);
+      dates.push({
+        isoDate: element.event_instance.start,
+        formattedDate: formattedDate,
+      });
     }
   });
 

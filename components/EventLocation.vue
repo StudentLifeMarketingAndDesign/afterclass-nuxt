@@ -12,7 +12,7 @@
         :href="'/events/venue/' + props.event.location_id"
         >{{ props.event.location_name }}</NuxtLink
       >
-      <span v-else>{{ props.event.location_name }}</span>
+      <span v-else itemprop="location">{{ props.event.location_name }}</span>
     </span>
   </span>
 </template>

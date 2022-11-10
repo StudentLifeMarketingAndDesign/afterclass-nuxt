@@ -84,7 +84,7 @@
                 <div class="collapse" id="collapseDates">
                   <ul class="mb-3">
                     <li v-for="date in upcomingDates" :key="date.id">
-                      {{ date }}
+                      {{ date.formattedDate }}
                     </li>
                   </ul>
                 </div>
@@ -214,7 +214,9 @@
     </div>
 
     <div class="container-fluid" v-if="moreEvents.length > 0">
-      <h2 class="text-center pt-4" id="more-events-heading">More events</h2>
+      <h2 class="text-center pt-4" id="more-events-heading">
+        More events categorized under "{{ typeSeedName }}"
+      </h2>
       <EventWall :events="moreEvents" />
     </div>
   </div>
@@ -226,6 +228,7 @@ const eventFeed = ref();
 const eventFetched = ref();
 const upcomingDates = ref([]);
 const typeSeed = ref("");
+const typeSeedName = ref("");
 
 const moreEventsFeed = ref([]);
 const moreEvents = ref([]);
@@ -235,6 +238,8 @@ eventFeed.value = await getEvent(route.params.id).then((result) => {
   upcomingDates.value = getUpcomingDates(result.value.event_instances);
   if (result.value.filters.event_types) {
     typeSeed.value = result.value.filters.event_types[0].id;
+    //console.log(result.value.filters.event_types[0].name);
+    typeSeedName.value = result.value.filters.event_types[0].name;
     //console.log(typeSeed.value);
   }
   // console.log(result.value.filters.event_types[0].id);

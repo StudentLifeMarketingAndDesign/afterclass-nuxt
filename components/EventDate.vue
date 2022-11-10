@@ -1,8 +1,12 @@
 <template>
   <span class="text-uppercase">
-    <span v-if="upcomingDates.length > 0">
+    <span
+      v-if="upcomingDates.length > 0"
+      itemprop="startDate"
+      :datetime="upcomingDates[0].isoDate"
+    >
       <font-awesome-icon icon="fa-solid fa-calendar-alt" />
-      {{ upcomingDates[0] }}
+      {{ upcomingDates[0].formattedDate }}
     </span>
     <span v-if="pastDates">
       <font-awesome-icon icon="fa-solid fa-calendar-alt" /> {{ pastDates[0] }}
