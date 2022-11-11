@@ -26,7 +26,7 @@ useHead({
   // ... or as a function
   titleTemplate: (title) => {
     return title
-      ? `${title} - After Class | The University of Iowa`
+      ? `${title} | After Class - The University of Iowa`
       : 'After Class | The University of Iowa'
   }
 })
