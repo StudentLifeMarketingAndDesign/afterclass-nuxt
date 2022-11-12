@@ -1,6 +1,6 @@
 <template>
   <div class="iowa-bar container-fluid iowa-bar--narrow iowa-bar--dark-header" data-uids-header>
-    <div class="iowa-bar__container container-xl">
+    <div class="iowa-bar__container container-fluid">
       <div class="uids-logo uids-logo--tab d-flex align-items-center">
         <a href="https://www.uiowa.edu">
           <div class="sr-only">The University of Iowa</div>
