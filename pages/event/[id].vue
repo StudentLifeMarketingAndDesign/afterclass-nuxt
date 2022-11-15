@@ -260,8 +260,6 @@ if (typeSeed.value) {
   });
 }
 
-const isShowMoreEvents = ref(false);
-
 function isLateNight() {
   if (!eventFetched.value.filters) {
     return false;
@@ -280,6 +278,36 @@ function isLateNight() {
     return false;
   }
 }
+//let upcomingDates = getUpcomingDates(props.eventInstances);
+// console.log(upcomingDates.value[0].isoDate);
+console.log(eventFetched.value);
+useJsonld(() => ({
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: eventFetched.value.title,
+  startDate: upcomingDates.value[0].isoDate,
+  location: {
+    "@type": "Place",
+    name: eventFetched.value.location_name,
+    //@todo: get venue, dynamically update this json ld somehow
+    //   address: {
+    //     "@type": "PostalAddress",
+    //     streetAddress: "2635 Homestead Rd",
+    //     addressLocality: "Santa Clara",
+    //     postalCode: "95051",
+    //     addressRegion: "CA",
+    //     addressCountry: "US",
+    //   },
+  },
+  organizer: {
+    "@type": "Organization",
+    name: "Kira and Morrison Music",
+    url: "https://kiraandmorrisonmusic.com",
+  },
+
+  image: [eventFetched.value.media[0].original_image],
+  description: eventFetched.description_text,
+}));
 </script>
 
 <style scoped>

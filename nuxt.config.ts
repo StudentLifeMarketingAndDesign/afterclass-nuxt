@@ -53,11 +53,7 @@ export default defineNuxtConfig({
   buildModules: ["@nuxtjs/google-fonts"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    // '@nuxt/content'
-    // '@nuxtjs/tailwindcss'
-  ],
+  modules: ["nuxt-jsonld"],
   image: { domains: ["content.uiowa.edu"] },
   // bootstrapVue: {
   //     bootstrapCSS: false, // Or `css: false`
