@@ -1,44 +1,37 @@
 <template>
   <div>
+
     <Head>
       <Title>About After Class</Title>
+      <Meta name="title" content="About After Class" />
+      <Meta name="description"
+        content="After Class is a project of the Division of Student Life at the University of Iowa. Use After Class to promote your event to a student audience!" />
       <MetaImageDefault />
     </Head>
     <HeaderSmall />
 
     <div class="container">
       <div class="row justify-content-center">
-        <div
-          class="col-sm col-lg-9 col-xl-8 content-container pt-5"
-          role="main"
-        >
+        <div class="col-sm col-lg-9 col-xl-8 content-container pt-5" role="main">
           <article>
             <h1>About After Class</h1>
             <div class="content">
               <p>
-                A project of the
-                <a href="http://studentlife.uiowa.edu"
-                  >Division of Student Life</a
-                >
-                at the University of Iowa, After Class is curated from events
+                After Class is a project of the
+                <a href="http://studentlife.uiowa.edu">Division of Student Life</a>
+                at the University of Iowa. After Class is curated from events
                 found at
-                <a rel="noopener" href="http://events.uiowa.edu" target="_blank"
-                  >events.uiowa.edu</a
-                >.
+                <a rel="noopener" href="http://events.uiowa.edu" target="_blank">events.uiowa.edu</a>.
               </p>
               <p>
                 Use After Class to promote your event to a student audience! You
-                can add your own events using the button below.&nbsp;
+                can add your own events using the button below.
               </p>
               <h2>Contact us/report a problem</h2>
               <p>
                 After Class is maintained by
-                <a
-                  rel="noopener"
-                  href="https://slc.studentlife.uiowa.edu"
-                  target="_blank"
-                  >Student Life Communications</a
-                >.
+                <a rel="noopener" href="https://slc.studentlife.uiowa.edu" target="_blank">Student Life
+                  Communications</a>.
               </p>
               <p>
                 Contact us by emailing
@@ -51,11 +44,7 @@
                 (or at least college student-rated) folks.
               </p>
               <p>
-                <a
-                  class="btn btn-primary btn-outline-white btn-large"
-                  href="/add/"
-                  >Add Your Event</a
-                >
+                <a class="btn btn-primary btn-outline-white btn-large" href="/add/">Add Your Event</a>
               </p>
             </div>
           </article>
@@ -68,4 +57,5 @@
 </script>
   
 <style scoped>
+
 </style>
