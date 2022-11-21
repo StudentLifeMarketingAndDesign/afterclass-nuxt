@@ -207,18 +207,17 @@ function generateJsonLd(eventFetched) {
     "@context": "https://schema.org",
     "@type": "Event",
     name: eventFetched.value.title,
-
+    description: eventFetched.value.description_text,
     organizer: {
       "@type": "Person",
       name: eventFetched.value.contact_name,
       email: eventFetched.value.contact_email,
       telephone: eventFetched.value.contact_phone
     },
-    description: eventFetched.description_text
   };
 
   if (eventFetched.value.media) {
-    jsonLd.image = eventFetched.value.media[0];
+    jsonLd.image = eventFetched.value.media[0].original_image;
   }
 
   if (upcomingDates.value[0]) {
@@ -246,6 +245,8 @@ function generateJsonLd(eventFetched) {
       "url": eventFetched.value.virtual_url
     }
     jsonLd.eventAttendanceMode = "https://schema.org/OnlineEventAttendanceMode";
+  } else {
+    jsonLd.eventAttendanceMode = "https://schema.org/OfflineEventAttendanceMode";
   }
 
   if (eventFetched.value.canceled) {
