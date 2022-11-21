@@ -39,26 +39,26 @@ export default defineNuxtConfig({
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  // css: ['~/assets/scss/main.scss'],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    //'~/plugins/bootstrap.js',
     "~/plugins/fontawesome.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/google-fonts"],
-
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-jsonld"],
+
+  modules: [
+    "@nuxtjs/google-fonts",
+    "nuxt-jsonld"
+    // https://go.nuxtjs.dev/bootstrap
+    // '@nuxt/content'
+    // '@nuxtjs/tailwindcss'
+  ],
+
   image: { domains: ["content.uiowa.edu"] },
-  // bootstrapVue: {
-  //     bootstrapCSS: false, // Or `css: false`
-  //     bootstrapVueCSS: false // Or `bvCSS: false`
-  // },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: true,
