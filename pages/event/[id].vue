@@ -231,7 +231,7 @@ function generateJsonLd(eventFetched) {
       address: {
         "@type": "PostalAddress",
         streetAddress: eventFetched.value.geo.street,
-        ddressLocality: eventFetched.value.geo.city,
+        addressLocality: eventFetched.value.geo.city,
         postalCode: eventFetched.value.geo.zip,
         addressRegion: eventFetched.value.geo.state,
         addressCountry: eventFetched.value.geo.country,
