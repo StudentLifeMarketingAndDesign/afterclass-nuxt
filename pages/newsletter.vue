@@ -38,7 +38,13 @@
                   v-for="event in eventFeed.events"
                   :key="event.event.id"
                   :value="event.event.id"
-                  :label="event.event.title"
+                  :label="
+                    event.event.title +
+                    ' (' +
+                    getUpcomingDates(event.event.event_instances)[0]
+                      .formattedDate +
+                    ')'
+                  "
                 >
                   {{ event.event.id }}
                 </option>
@@ -103,7 +109,16 @@
 <script setup>
 // import TextClamp from "vue3-text-clamp";
 import { ref } from "vue";
-const eventFeed = await getEvents();
+const eventFeed = await getEvents(
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  "week"
+);
 //const htmlGen = getExampleNewsletterHtml();
 const htmlGen = ref("");
 const headerText = ref("");

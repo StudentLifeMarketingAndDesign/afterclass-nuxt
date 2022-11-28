@@ -1355,7 +1355,7 @@ function getDateHtml(event) {
   upcomingDates = getUpcomingDates(event.event_instances);
 
   if (upcomingDates.length > 0) {
-    return upcomingDates[0];
+    return upcomingDates[0].formattedDate;
   } else {
     return "No upcoming dates.";
   }

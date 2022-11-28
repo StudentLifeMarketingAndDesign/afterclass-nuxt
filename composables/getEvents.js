@@ -7,13 +7,16 @@ async function getEvents(
   keyword,
   type,
   interest,
-  perPage
+  perPage,
+  display_id
 ) {
   var feedParams = "";
   var afterClassInterest = 284;
 
   if (startDate || endDate) {
     feedParams += "display_id=events";
+  } else if (display_id) {
+    feedParams += "display_id=" + display_id;
   } else {
     feedParams += "display_id=threemonths";
   }
