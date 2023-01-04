@@ -1,3 +1,5 @@
+import dynamicRoutes from './helpers/dynamicRoutes';
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   // Target: https://go.nuxtjs.dev/config-target
@@ -40,9 +42,7 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    "~/plugins/fontawesome.js",
-  ],
+  plugins: ["~/plugins/fontawesome.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -51,11 +51,18 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/google-fonts",
-    "nuxt-jsonld"
-    // https://go.nuxtjs.dev/bootstrap
-    // '@nuxt/content'
-    // '@nuxtjs/tailwindcss'
+    "nuxt-jsonld",
+    ["@funken-studio/sitemap-nuxt-3", { generateOnBuild: true }],
   ],
+
+  sitemap: {
+    hostname: 'https://afterclass.uiowa.edu',
+    gzip: true,
+    exclude: [
+      '/newsletter',
+    ],
+    routes: dynamicRoutes
+  },
 
   image: { domains: ["content.uiowa.edu"] },
 
