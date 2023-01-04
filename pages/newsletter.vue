@@ -2,6 +2,7 @@
   <div>
     <Head>
       <Title>Newsletter Creator</Title>
+      <Meta name="robots" content="noindex" />
     </Head>
     <HeaderSmall />
     <div class="container">
