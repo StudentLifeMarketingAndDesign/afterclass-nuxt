@@ -1,4 +1,4 @@
-import dynamicRoutes from './helpers/dynamicRoutes';
+import dynamicRoutes from "./helpers/dynamicRoutes";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -56,12 +56,10 @@ export default defineNuxtConfig({
   ],
 
   sitemap: {
-    hostname: 'https://afterclass.uiowa.edu',
+    hostname: "https://afterclass.uiowa.edu",
     gzip: true,
-    exclude: [
-      '/newsletter',
-    ],
-    routes: dynamicRoutes
+    exclude: ["/newsletter"],
+    routes: dynamicRoutes,
   },
 
   image: { domains: ["content.uiowa.edu"] },
@@ -75,6 +73,7 @@ export default defineNuxtConfig({
       "@fortawesome/vue-fontawesome",
       "@fortawesome/fontawesome-svg-core",
       "@fortawesome/free-solid-svg-icons",
+      "@fortawesome/free-solid-svg-icons/faArrowRight.js",
     ],
   },
 });
