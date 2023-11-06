@@ -1,34 +1,6 @@
 <template>
   <footer class="footer bg-dark text-light">
-    <!-- Instagram Feed -->
-    <section class="instafeed py-5" aria-labelledby="instagramid">
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <h3 id="instagramid">
-              Follow us on Instagram
-              <a href="https://www.instagram.com/uistudentlife/"
-                >@uistudentlife</a
-              >
-            </h3>
-            <!-- SnapWidget -->
-            <iframe
-              src="https://snapwidget.com/embed/881820"
-              class="snapwidget-widget"
-              allowtransparency="true"
-              frameborder="0"
-              scrolling="no"
-              style="border: none; overflow: hidden; width: 100%"
-              loading="lazy"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div
-      class="footer__container container-fluid footer__container--with-social"
-    >
+    <div class="footer__container container-fluid footer__container--with-social">
       <div class="row py-5">
         <div class="col-12 col-md-6 col-lg-4">
           <div class="footer__info pb-3">
@@ -44,10 +16,7 @@
             <div class="footer__summary my-3">
               <p>
                 After Class is a service of the
-                <a
-                  rel="noopener"
-                  href="http://studentlife.uiowa.edu"
-                  target="_blank"
+                <a rel="noopener" href="http://studentlife.uiowa.edu" target="_blank"
                   >Division of Student Life</a
                 >.
               </p>
@@ -73,9 +42,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i
-                      class="fab fa-facebook-square fa-2x pr-2 align-middle"
-                    ></i>
+                    <i class="fab fa-facebook-square fa-2x pr-2 align-middle"></i>
                     <span class="sr-only">Facebook</span>
                   </a>
                 </li>
@@ -86,9 +53,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i
-                      class="fab fa-twitter-square fa-2x pr-2 align-middle"
-                    ></i>
+                    <i class="fab fa-twitter-square fa-2x pr-2 align-middle"></i>
                     <span class="sr-only">Twitter</span>
                   </a>
                 </li>
@@ -106,9 +71,7 @@
                   <h2 class="sr-only">Footer Navigation</h2>
                   <ul class="list-unstyled row">
                     <li class="col-6">
-                      <NuxtLink href="/" class="text-light d-block py-2"
-                        >Events</NuxtLink
-                      >
+                      <NuxtLink href="/" class="text-light d-block py-2">Events</NuxtLink>
                     </li>
 
                     <li class="col-6">
@@ -118,9 +81,7 @@
                     </li>
 
                     <li class="col-6">
-                      <NuxtLink
-                        href="/about-after-class/"
-                        class="text-light d-block py-2"
+                      <NuxtLink href="/about-after-class/" class="text-light d-block py-2"
                         >About</NuxtLink
                       >
                     </li>
@@ -140,13 +101,7 @@
                 <div class="footer__buttons py-2">
                   <NuxtLink
                     href="/events/weekend"
-                    class="
-                      btn
-                      d-block d-sm-inline-block d-lg-block
-                      btn-outline-warning
-                      mr-1
-                      mb-1
-                    "
+                    class="btn d-block d-sm-inline-block d-lg-block btn-outline-warning mr-1 mb-1"
                     >This Weekend
                     <font-awesome-icon icon="fas fa-arrow-right" />
                   </NuxtLink>
@@ -166,9 +121,8 @@
         <div class="row">
           <div class="footer__copyright py-2 col">
             <p class="mb-0 small">
-              &copy; {{ currentYear }}
-              <a href="http://www.uiowa.edu/">The University of Iowa</a>. All
-              Rights Reserved.
+              &copy; {{ currentYear }} <a href="http://www.uiowa.edu/">The University of Iowa</a>.
+              All Rights Reserved.
               <a
                 href="http://www.uiowa.edu/homepage/online-privacy-information"
                 class="footer__bar-link"
@@ -179,21 +133,14 @@
                 class="footer__bar-link"
                 >Nondiscrimination Statement</a
               >
-              <a
-                href="https://uiowa.edu/accessibility"
-                target="_blank"
-                class="footer__bar-link"
+              <a href="https://uiowa.edu/accessibility" target="_blank" class="footer__bar-link"
                 >Accessibility</a
               >
-              <a
-                href="https://nativeamericancouncil.org.uiowa.edu/"
-                class="footer__bar-link"
+              <a href="https://nativeamericancouncil.org.uiowa.edu/" class="footer__bar-link"
                 >UI Indigenous Land Acknowledgement</a
               >
               Created by
-              <a href="https://slc.studentlife.uiowa.edu/"
-                >Student Life Communications</a
-              >
+              <a href="https://slc.studentlife.uiowa.edu/">Student Life Communications</a>
             </p>
           </div>
         </div>
